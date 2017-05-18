@@ -92,10 +92,10 @@ header h1 {
     font-size: 50px;
 }
 
-.left-side {
+.carousel .left-side {
     left: 3%;
 }
 
-.right-side {
+.carousel .right-side {
     left: 85%;
 }
