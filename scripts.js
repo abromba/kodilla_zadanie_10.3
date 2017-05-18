@@ -23,8 +23,7 @@ $(function(){
     });
     $('.right-side').click(function() {
         moveLastSlideOnFirstPlace();
-		clearInterval(interval);
-		moveFirstSlideOnLastPlace();
-    });
+//		clearInterval(interval);
+	});
 });
 
