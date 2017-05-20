@@ -1,29 +1,31 @@
 $(function(){
     var carouselList = $('#carousel ul');
 
-    function changeSlide(){
+    function changeSlideLeft(){
         carouselList.animate({marginLeft: -400}, 500, moveFirstSlideOnLastPlace);
     };
     function moveFirstSlideOnLastPlace(){
         carouselList.find('li:last').after(carouselList.find('li:first'));
         carouselList.css({marginLeft: 0});
     };
-    function changeSlideLeft(){
-        carouselList.animate({marginLeft: 0}, 500);
+    function changeSlideRight(){
+        carouselList.animate({marginLeft: 0}, 500, moveLastSlideOnFirstPlace);
     };
     function moveLastSlideOnFirstPlace(){
         carouselList.find('li:first').before(carouselList.find('li:last'));
         carouselList.css({marginLeft: -400});
-        changeSlideLeft();
     };
-    var interval = setInterval(changeSlide, 3000);
+    var interval = setInterval(changeSlideLeft, 2000);
 
     $('.left-side').click(function() {
-        changeSlide();
+        clearInterval(interval);
+	    changeSlideLeft();
+	    interval = setInterval(changeSlideLeft, 2000);
     });
     $('.right-side').click(function() {
-        moveLastSlideOnFirstPlace();
-//		clearInterval(interval);
+		clearInterval(interval);
+		changeSlideRight();
+        interval = setInterval(changeSlideRight, 2000);
 	});
 });
 
